@@ -8,7 +8,7 @@ const cors = require('cors');
 
 // Configure CORS for a specific origin
 app.use(cors({
-  origin: 'http://localhost:19006',
+  origin: 'http://hackathon-ny4k.onrender.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
 }));
