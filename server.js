@@ -4,7 +4,6 @@ const app = express()
 const userController = require("./HackaUserController")
 const therapistController  = require("./TherapistController")
 require("./dbConnection").getDbConnection()
-app.use('cors')
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
