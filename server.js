@@ -5,12 +5,17 @@ const userController = require("./HackaUserController")
 const therapistController  = require("./TherapistController")
 require("./dbConnection").getDbConnection()
 
+var corsOption={
+    origin:'http://hackathon-ny4k.onrender.com',
+    optionsSuccessStatus:200
+}
+
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
 
-app.post('/HackaSignup',cors(),userController.signup);
-app.post("/therapistSignup",cors(),therapistController.signup);
-app.post("/UserLogin",cors(),userController.login);
+app.post('/HackaSignup',cors(corsOption),userController.signup);
+app.post("/therapistSignup",cors(corsOption),therapistController.signup);
+app.post("/UserLogin",cors(corsOption),userController.login);
 
 app.listen(9811,(err)=>{
     if(!err){
