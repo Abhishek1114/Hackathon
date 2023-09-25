@@ -1,5 +1,4 @@
 const express = require("express")
-var cors = require('cors')
 const app = express()
 const userController = require("./HackaUserController")
 const therapistController  = require("./TherapistController")
