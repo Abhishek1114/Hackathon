@@ -4,18 +4,14 @@ const app = express()
 const userController = require("./HackaUserController")
 const therapistController  = require("./TherapistController")
 require("./dbConnection").getDbConnection()
-app.use(cors({
-  origin: 'http://localhost:19006',
-  methods: 'GET,POST', // Specify the allowed HTTP methods
-  optionsSuccessStatus: 204, // Return a 204 status code for preflight requests
-}));
+app.use('cors')
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
 
-app.post('/HackaSignup',userController.signup);
-app.post("/therapistSignup",therapistController.signup);
-app.post("/UserLogin",userController.login);
+app.post('/HackaSignup',cors(),userController.signup);
+app.post("/therapistSignup",cors(),therapistController.signup);
+app.post("/UserLogin",cors(),userController.login);
 
 app.listen(9811,(err)=>{
     if(!err){
