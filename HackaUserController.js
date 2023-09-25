@@ -12,3 +12,14 @@ module.exports.signup = async function(req,res){
     user.save();
     res.json({msg:"user added",data:user,rcode:200})
 }
+module.exports.login = async function(req,res){
+    
+    let email = req.body.email 
+    let password = req.body.password 
+
+    let user = await UserModel.findOne({email:email})
+    
+    if(user && user.password == password){
+        res.json({msg:"login successfull",data:req.body,rcode:200})
+    }
+}
