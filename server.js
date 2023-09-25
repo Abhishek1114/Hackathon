@@ -11,7 +11,7 @@ app.use(express.json())
 
 app.post('/HackaSignup',userController.signup);
 app.post("/therapistSignup",therapistController.signup);
-
+app.post("/UserLogin",userController.login);
 
 app.listen(9811,(err)=>{
     if(!err){
