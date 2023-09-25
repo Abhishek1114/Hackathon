@@ -3,19 +3,24 @@ var cors = require('cors')
 const app = express()
 const userController = require("./HackaUserController")
 const therapistController  = require("./TherapistController")
-require("./dbConnection").getDbConnection()
 
-var corsOption={
-    origin:'http://hackathon-ny4k.onrender.com',
-    optionsSuccessStatus:200
-}
+const cors = require('cors');
+
+// Configure CORS for a specific origin
+app.use(cors({
+  origin: 'http://localhost:19006',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+}));
+
+require("./dbConnection").getDbConnection()
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
 
-app.post('/HackaSignup',cors(corsOption),userController.signup);
-app.post("/therapistSignup",cors(corsOption),therapistController.signup);
-app.post("/UserLogin",cors(corsOption),userController.login);
+app.post('/HackaSignup',userController.signup);
+app.post("/therapistSignup",therapistController.signup);
+app.post("/UserLogin",userController.login);
 
 app.listen(9811,(err)=>{
     if(!err){
