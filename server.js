@@ -1,7 +1,7 @@
 const express = require("express")
 var cors = require('cors')
 const app = express()
-const userController = require("./UserController")
+const userController = require("./HackaUserController")
 require("./dbConnection").getDbConnection()
 app.use(cors())
 
