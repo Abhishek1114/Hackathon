@@ -12,5 +12,5 @@ module.exports.signup = async function(req,res){
         cli_hosp_address:req.body.clinic_hosp_name
         });
     therapist.save();
-    res.json({msg:"therapist added",data:user,rcode:200})
+    res.json({msg:"therapist added",data:therapist,rcode:200})
 }
