@@ -7,7 +7,7 @@ const cors = require('cors');
 
 // Configure CORS for a specific origin
 app.use(cors({
-  origin: 'http://localhost:1900',
+  origin: 'http://localhost:19006',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
 }));
