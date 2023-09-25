@@ -26,3 +26,12 @@ module.exports.login = async function(req,res){
         res.json({"msg":"Invalid"})
     }
 }
+
+module.exports.getAllUsers = async function(req,res)
+{
+    UserModel.find().then(data=>{
+        res.json({msg:"users retrived",data:data,rcode:200})
+    }).catch(err=>{
+        res.json({msg:"error"})
+    })
+}
