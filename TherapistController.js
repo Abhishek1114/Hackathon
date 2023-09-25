@@ -1,7 +1,7 @@
 const Therapist  = require("./TherapistModel")
 
 module.exports.signup = async function(req,res){
-    let therapist =new UserModel({
+    let therapist =new Therapist({
         full_Name:req.body.full_name,
         gender:req.body.gender,
         dob:req.body.dob,
