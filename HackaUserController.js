@@ -23,7 +23,7 @@ module.exports.login = async function(req,res){
         res.json({msg:"login successfull",data:req.body,rcode:200})
     }
     else{
-        res.json({"msg":"Invalid"})
+        res.json({"msg":"Invalid",rcode:-9})
     }
 }
 
